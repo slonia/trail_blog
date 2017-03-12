@@ -11,7 +11,7 @@ gem 'sqlite3'
 gem 'simple_form'
 gem 'jquery'
 gem "rails-timeago"
-
+gem 'foundation-rails'
 group :development do
   gem 'pry-rails'
 end

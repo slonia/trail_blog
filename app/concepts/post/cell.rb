@@ -9,6 +9,12 @@ class Post::Cell < Cell::Concept
     render
   end
 
+  def classes
+    classes = ["large-3", "columns"]
+    classes << "end" if options[:last] == model
+    classes
+  end
+
   private
 
     def title_link
@@ -18,5 +24,10 @@ class Post::Cell < Cell::Concept
     def created_at
       timeago_tag(super)
     end
-
+  class Grid < Cell::Concept
+    def show
+      latest = Post.latest
+      concept('post/cell', collection: latest, last: latest.last)
+    end
+  end
 end
